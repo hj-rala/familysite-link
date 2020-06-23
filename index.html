@@ -1,7 +1,7 @@
 <div id="familyGroup">
 		<!-- <a href="#"><span>FAMILY GROUP</span></a> -->
 		<select name="" id="" class="bdbox" onchange="gotourl(this.value, 'new');">
-			<option value="#">FAMILY SITE</option>
+			<option value="/" selected="selected"">FAMILY SITE</option>
 			<option value="https://site.com">site</option>
 		</select>
 	</div>
@@ -9,12 +9,15 @@
 
 //family site
 function gotourl(url, type) {
-	if (type == 'new')
-		window.open(url);
-	else
-	location.href = url;
+	if (type == 'new' && url != "/" ) {
+		var newWindow = window.open("about:blank");
+		newWindow.location.href = url;
+    } else {
+        if(url != "/") {
+    	    location.href = url;			
+        }
+    }
 }
-
 
 
 $(function(){}); 밖에 
